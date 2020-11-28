@@ -1,0 +1,29 @@
+{
+  "name": "comet",
+  "version": "1.0.0",
+  "description": "comet web solutions single page clone [showcasing css]",
+  "main": "index.js",
+  "browserslist": [
+    "> 1%",
+    "IE > 8"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "concat:css": "concat -o css/style.concat.css css/iconfonts.css css/style.comp.css",
+    "prefix:css": "postcss -u autoprefixer -b 'ie 7' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.min.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css",
+    "start": "npm run watch:sass"
+  },
+  "author": "siddharth",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "concat": "^1.0.3",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.3.0"
+  }
+}
